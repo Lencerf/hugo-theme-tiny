@@ -1,0 +1,50 @@
+<html lang="en">
+  {{ partial "head" . }}
+  <body>
+    {{ partial "header" . }}
+    <section class="section content">
+        {{ $nbPosts := len (where .Data.Pages "Section" "post") }}
+        {{ if gt $nbPosts 0 }}
+        <h2 class="list-title">Latest posts</h2>
+            <ul>
+            {{ range (first .Site.Params.latestpostcount (where .Pages "Section" "post")).GroupByDate "Jan, 2006" "desc" }}
+              {{ range .Pages.ByPublishDate }}
+                <li class="post-item">
+                <time class="meta list">{{ .Date.Format .Site.Params.dateform }}</time>
+                <a href="{{ .Permalink }}"><span>{{ .Title }}</span></a>
+                </li>
+              {{ end }}
+            {{ end }}
+              {{ if gt $nbPosts .Site.Params.latestpostcount }}
+                <li class="post-item">
+                    <a href="/post/" class="see-more">More ...</a>
+                </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+
+          {{ if gt (len (.Site.Params.project)) 0}}
+          <h2 class="list-title">Projects</h2>
+            <ul>
+            {{ range .Site.Params.project }}
+                <li>
+                    {{ if .url}}
+                    <a href={{ .url }}>{{ .name }}</a>
+                    {{ else }}
+                    <span>{{ .name }}</span>
+                    {{ end }}
+                </li>
+            {{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with .Site.Params.about }}
+            <h2 class="list-title">About</h2>
+            <ul>
+                <p> {{ . | safeHTML }} </p>
+            </ul>
+            {{ end }}
+    </section>
+    {{ partial "footer" . }}
+  </body>
+</html>

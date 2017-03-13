@@ -1,0 +1,45 @@
+<html lang="en">
+  {{ partial "head" . }}
+  <body>
+    {{ partial "header" . }}
+    <article class="section">
+      <h1 class="title">{{ .Title }}</h1>
+        {{ if eq .Params.noDate true}} {{ else }}
+        <time class="meta">March 11, 2017</time>
+        {{ end }}
+      <div class="meta">
+        {{if .Params.categories }}
+          <span class="metagroup">
+            {{ range $index, $category := .Params.categories }}
+            {{ if gt $index 0 }}, {{ end }}
+            <i class="fa fa-folder-o" aria-hidden="true"></i>
+            <a href="{{ "/categories/" | relLangURL }}{{ . | urlize | lower }}" rel="category">{{ . }}</a>
+            {{ end }}
+          </span>
+        {{end }}
+        {{if .Params.tags }}
+          <span class="metagroup">
+            {{ if gt (len .Params.tags) 1 }}
+              <i class="fa fa-tags" aria-hidden="true"></i>
+            {{ else }}
+              <i class="fa fa-tag" aria-hidden="true"></i>
+            {{ end }}
+            {{ range $index, $tag := .Params.tags }}
+              {{ if gt $index 0}}
+                <span id="tagcomma">,</span>
+              {{ end }}
+              <a href="/tags/{{ . | urlize }}/" rel="tag">{{ . }}</a>
+            {{ end }}
+          </span>
+        {{end }}
+      </div>
+      <main class="content entry-content entry clearfix">
+          {{ .Content }}
+      </main>
+    </article>
+    {{ if eq .Params.noComment true }} {{ else }}
+    {{ partial "disqus" . }}
+    {{ end }}
+    {{ partial "footer" . }}
+  </body>
+</html>

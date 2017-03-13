@@ -1,0 +1,28 @@
+<html lang="en">
+  {{ partial "head" . }}
+  <body>
+      {{ partial "header" . }}
+      <section class="section content">
+        {{ $nbPosts := len (where .Data.Pages "Section" "post") }}
+        {{ if gt $nbPosts 0 }}
+            <h2 class="list-title">
+                {{ if eq .Data.Singular "tag"}}<i class="fa fa-tag" aria-hidden="true"></i>{{ end }}
+                {{ if eq .Data.Singular "category"}}<i class="fa fa-folder-open-o" aria-hidden="true"></i>{{ end }}
+                {{ .Title }}
+            </h2>
+            <ul>
+                {{ range (where .Pages "Section" "post").GroupByDate "2006" "desc" }}
+                    <li class="groupby">{{ .Key }}</li>
+                    {{ range .Pages.ByPublishDate }}
+                        <li class="post-item">
+                        <time class="meta list">{{ .Date.Format .Site.Params.dateform }}</time>
+                        <a href="{{ .Permalink }}"><span>{{ .Title }}</span></a>
+                        </li>
+                    {{ end }}
+                {{ end }}
+            </ul>
+         {{ end }}
+      </section>
+      {{ partial "footer" . }} 
+  </body>
+</html>

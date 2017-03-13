@@ -2,7 +2,11 @@ html {
     text-rendering: optimizeLegibility;
     font-family: 'PingFang SC', 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 14px;
-    font-weight: 300
+    font-weight: 400
+}
+
+body {
+	word-wrap: break-word;
 }
 
 .section {
@@ -163,14 +167,35 @@ li.post-item {
 }
 
 code {
-    font-family: "Source Code Pro", "Monaco", "Inconsolata", monospace;
-    color: black;
-    font-size: 90%;
-    margin: 0 2px;
-    padding: 2px 4px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f8f8f8;
+   font-family: "Source Code Pro", "Monaco", "Inconsolata", monospace; 
+  background: #eee;
+  color: #666;
+  padding: 0 5px;
+  margin: 0 2px;
+  font-size: 0.9em;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  word-wrap: normal
+}
+pre {
+  background: #eee;
+  margin-bottom: 15px;
+  padding: 7px 15px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  white-space: pre;
+}
+article pre code {
+  background: none;
+  overflow-x: auto;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  word-break: normal;
 }
 
 img {
@@ -192,8 +217,8 @@ font-style: italic;
 
 .content blockquote {
     border-left: 5px solid #d3d6db;
-padding: 0.3em 1em;
-margin: 0.7em
+    padding: 0.3em 1em;
+    margin: 0.7em
 }
 
 footer {
