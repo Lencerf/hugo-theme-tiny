@@ -2,7 +2,6 @@ html {
     text-rendering: optimizeLegibility;
     font-family: 'PingFang SC', 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 14px;
-    font-weight: 400
 }
 
 body {
@@ -72,7 +71,7 @@ a:hover {
 h1.title {
     font-size: 2em;
     margin: 5px 0px;
-    font-weight: normal
+    font-weight: 400;
 }
 
 time {
@@ -149,7 +148,7 @@ h2.list-title {
 
 .content h2,.content h3,.content h4,.content h5,.content h6 {
     line-height: 1.25;
-    font-weight: 300
+    font-weight: 400;
 }
 
 .content p {
