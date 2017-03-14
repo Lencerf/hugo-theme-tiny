@@ -9,10 +9,7 @@
             <ul class="list">
             {{ range (first .Site.Params.latestpostcount (where .Pages "Section" "post")).GroupByDate "Jan, 2006" "desc" }}
               {{ range .Pages.ByPublishDate }}
-                <li class="post-item">
-                <time class="meta list">{{ .Date.Format .Site.Params.dateform }}</time>
-                <a href="{{ .Permalink }}"><span>{{ .Title }}</span></a>
-                </li>
+                {{ partial "li" .}}
               {{ end }}
             {{ end }}
               {{ if gt $nbPosts .Site.Params.latestpostcount }}
