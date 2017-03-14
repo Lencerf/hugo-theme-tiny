@@ -1,0 +1,25 @@
+<footer class="section">
+  <div class="container has-text-centered">
+   &copy; {{ with .Site.Params.startYear }}{{ . }}-{{ end }}{{ now.Year }} {{ .Site.Title }}
+    | Powered by 
+   <a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a> | 
+   <a href="{{ .Site.Params.license }}"> License</a>
+  </div>
+</footer>
+
+{{ if .Site.GoogleAnalytics }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
+
+{{ if .IsPage }}
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script type="text/javascript" defer>
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+  </script>
+  {{ if .Params.needMathjax }}
+    {{ partial "mathjax.html" . }}
+  {{ end }}
+{{ end }}
