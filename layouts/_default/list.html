@@ -10,7 +10,7 @@
                 {{ if eq .Data.Singular "category"}}<i class="fa fa-folder-open-o" aria-hidden="true"></i>{{ end }}
                 {{ .Title }}
             </h2>
-            <ul>
+            <ul class="list">
                 {{ range (where .Pages "Section" "post").GroupByDate "2006" "desc" }}
                     <li class="groupby">{{ .Key }}</li>
                     {{ range .Pages.ByPublishDate }}

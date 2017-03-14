@@ -6,7 +6,7 @@
         {{ $nbPosts := len (where .Data.Pages "Section" "post") }}
         {{ if gt $nbPosts 0 }}
         <h2 class="list-title">Latest posts</h2>
-            <ul>
+            <ul class="list">
             {{ range (first .Site.Params.latestpostcount (where .Pages "Section" "post")).GroupByDate "Jan, 2006" "desc" }}
               {{ range .Pages.ByPublishDate }}
                 <li class="post-item">
@@ -25,7 +25,7 @@
 
           {{ if gt (len (.Site.Params.project)) 0}}
           <h2 class="list-title">Projects</h2>
-            <ul>
+            <ul class="list">
             {{ range .Site.Params.project }}
                 <li>
                     {{ if .url}}
@@ -40,7 +40,7 @@
 
             {{ with .Site.Params.about }}
             <h2 class="list-title">About</h2>
-            <ul>
+            <ul class="list">
                 <p> {{ . | safeHTML }} </p>
             </ul>
             {{ end }}
