@@ -1,6 +1,19 @@
+@font-face {
+    font-family: NotoSans;
+    src: url(/css/NotoSans.ttf);
+}
+@font-face {
+    font-family: SourceCodePro;
+    src: url(/css/SourceCodePro.ttf);
+}
+@font-face {
+    font-family: MarckScript;
+    src: url(/css/MarckScript.ttf);
+}
+
 html {
     text-rendering: optimizeLegibility;
-    font-family: 'PingFang SC', 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: NotoSans, 'Noto Sans CJK SC', 'PingFang SC', "Microsoft YaHei", sans-serif;
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
 }
@@ -11,22 +24,21 @@ body {
 
 .section {
     margin: 0 auto;
-    max-width: 800px;
-    padding: 10px 20px
+    max-width: 720px;
+    padding: 10px 10px
 }
 
 article.section {
     padding-bottom: 20px;
 }
 
-header {
-    background-color: #fff;
-    margin: 0px auto
+header.section {
+    padding-top: 20px;
 }
 
 h1.page-title {
-    font-size: 35px;
-    font-family: 'Merienda', cursive;
+    font-size: 44px;
+    font-family: MarckScript, cursive;
     margin: 0px;
     font-weight: 300;
 }
@@ -59,18 +71,16 @@ nav {
 
 a {
     color: #2077b2;
-    cursor: pointer;
     text-decoration: none;
-    -webkit-transition: none 86ms ease-out;
-    transition: none 86ms ease-out
+    transition: color linear 0.2s;
 }
 
 a:hover {
-    color: #222324
+    color:black;
 }
 
 h1.title {
-    font-size: 2em;
+    font-size: 1.8em;
     margin: 5px 0px;
     font-weight: 400;
 }
@@ -81,11 +91,16 @@ time {
 }
 
 time.meta.list {
-    min-width: 100px;
-    display: inline-block;
-    margin: 0;
+    margin-bottom: 0px;
     padding: 0;
     font-size: 1em;
+}
+
+div.time {
+    text-align: right;
+    min-width: 105px;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .meta {
@@ -95,11 +110,11 @@ time.meta.list {
 
 span.metagroup {
     margin-left: 5px;
-    margin-right: 5px
+    margin-right: 5px;
 }
 
 span#tagcomma {
-    margin-left: -5px
+    margin-left: -3px
 }
 
 .meta a {
@@ -107,23 +122,28 @@ span#tagcomma {
 }
 
 .content h2 {
-    font-size: 1.5em
+    font-size: 1.4em;
+    margin: 0.83em 0 0.73 0
 }
 
 h2.list-title {
-    margin: 10px 0px 0px 0px;
+    margin: 15px 0px 0px 0px;
+}
+
+h2.list-title:first-child {
+    margin-top: 5px;
 }
 
 .content h3 {
-    font-size: 1.25em
+    font-size: 1.3em
 }
 
 .content h4 {
-    font-size: 1.125em
+    font-size: 1.2em
 }
 
 .content h5 {
-    font-size: 1em
+    font-size: 1.1em
 }
 
 .content h6 {
@@ -137,7 +157,7 @@ h2.list-title {
 }
 
 .content a:not(.button) {
-    border-bottom: 1px solid #d3d6db;
+    border-bottom: 1px dashed #BBB;
 }
 
 .content h2,.content h3,.content h4,.content h5,.content h6 {
@@ -146,8 +166,47 @@ h2.list-title {
 }
 
 .content p {
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 0.6em;
+    margin-top: 0.8em;
+}
+
+.content ul {
+    margin: 0.5em
+}
+
+.content table {
+    overflow: auto;
+    border-spacing: 0;
+    margin: 0 auto;
+}
+
+.content table th {
+    font-weight: 600
+}
+
+.content table th, .content table td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5
+}
+
+.content table tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1
+}
+
+.content table tr:nth-child(2n) {
+    background-color: #f6f8fa
+}
+
+.content table img {
+    background-color: transparent
+}
+
+span.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 li.post-item {
@@ -168,35 +227,34 @@ ul.list {
 }
 
 code {
-   font-family: "Source Code Pro", "Monaco", "Inconsolata", monospace; 
-  background: #eee;
-  color: #666;
-  padding: 0 5px;
-  margin: 0 2px;
-  font-size: 0.9em;
-  border: 1px solid #ddd;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  word-wrap: normal
+    font-family: SourceCodePro, "Monaco", "Inconsolata", monospace; 
+    background: #eee;
+    color: #666;
+    padding: 0 5px;
+    margin: 0 2px;
+    font-size: 0.93em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: normal
 }
 pre {
-  background: #eee;
-  margin-bottom: 15px;
-  padding: 7px 15px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  white-space: pre;
+    background: #eee;
+    margin-bottom: 15px;
+    padding: 7px 15px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    white-space: pre;
 }
 article pre code {
-  background: none;
-  overflow-x: auto;
-  display: block;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  word-break: normal;
+    background: none;
+    overflow-x: auto;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    word-break: normal;
 }
 
 img {
@@ -207,22 +265,35 @@ img {
 
 .caption {
     display: block;
-margin-top: 2px;
-margin-bottom: 3px;
-color: #999;
-position: relative;
-font-size: 0.9em;
-text-align: center;
-font-style: italic;
+    margin-top: 2px;
+    margin-bottom: 3px;
+    color: #999;
+    position: relative;
+    font-size: 0.9em;
+    text-align: center;
+    font-style: italic;
 }
 
 .content blockquote {
+    font-style: italic;
     border-left: 5px solid #d3d6db;
-    padding: 0.3em 1em;
+    padding: 1px 1em;
     margin: 0.7em
+}
+
+.content blockquote p:first-child {
+    margin-top: 1px;
+}
+
+.content blockquote p:last-child {
+    margin-bottom: 1px;
+}
+
+.footnotes li {
+    font-size: 0.95em
 }
 
 footer {
     text-align: center;
-    font-size: 90%;
+    font-size: 0.8em;
 }

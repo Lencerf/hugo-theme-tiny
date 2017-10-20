@@ -1,8 +1,9 @@
+<!doctype html>
 <html lang="en">
   {{ partial "head" . }}
   <body>
     {{ partial "header" . }}
-    <section class="section content">
+    <section class="section content" id="content">
         {{ $nbPosts := len (where .Data.Pages "Section" "post") }}
         {{ if gt $nbPosts 0 }}
         <h2 class="list-title">Latest posts</h2>
