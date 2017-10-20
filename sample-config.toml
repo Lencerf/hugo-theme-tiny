@@ -1,0 +1,39 @@
+# baseurl = ""
+languageCode = "en"
+title = ""
+theme = "tiny"
+disqusShortname = ""
+googleAnalytics = ""
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+[params]
+subtitle = "stay simple, stay naïve"
+description = ""
+keywords = ["programming", "physics", "life"]
+author = "Van♂"
+sharingicons = true
+latestpostcount = 5
+dateformfull = "January 2, 2006"
+dateform = "Jan 2, 2006"
+about = ""
+license = "http://creativecommons.org/licenses/by-nc/4.0/"
+licenseName = "CC BY-NC 4.0"
+
+[params.highlight]
+style = "github"
+languages = ["go", "dockerfile"]
+
+#[[params.social]]
+#url = "https://github.com/"
+#fa_icon = "fa-github"
+
+[[params.social]]
+url = "/index.xml"
+fa_icon = "fa-rss"
+
+[[params.project]]
+name = "Ass♂we♂can"
+url = ""
