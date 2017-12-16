@@ -14,7 +14,7 @@
             <ul class="list">
                 {{ range (where .Pages "Section" "post").GroupByDate "2006" "desc" }}
                     <li class="groupby">{{ .Key }}</li>
-                    {{ range .Pages.ByPublishDate }}
+                    {{ range .Pages.ByDate.Reverse }}
                         {{ partial "li" .}}
                     {{ end }}
                 {{ end }}

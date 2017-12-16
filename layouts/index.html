@@ -9,7 +9,7 @@
         <h2 class="list-title">Latest posts</h2>
             <ul class="list">
             {{ range (first .Site.Params.latestpostcount (where .Pages "Section" "post")).GroupByDate "Jan, 2006" "desc" }}
-              {{ range .Pages.ByPublishDate }}
+              {{ range .Pages.ByDate }}
                 {{ partial "li" .}}
               {{ end }}
             {{ end }}

@@ -66,17 +66,9 @@
 </script>
 <script type="text/javascript" defer>
   var resize = function() {
-      console.log("ad");
-    //var headerHeight = document.getElementsByTagName("header")[0].clientHeight;
-    //var footerHeight = document.getElementsByTagName("footer")[0].clientHeight;
-    //var contentHeight = document.getElementById("content").clientHeight;
     var bodyHeight = document.getElementsByTagName("body")[0].clientHeight;
-    //console.log(headerHeight, footerHeight, contentHeight, bodyHeight);
-    console.log("body=", bodyHeight, "window=", window.innerHeight);
     if (bodyHeight < window.innerHeight) {
-      //console.log(document.getElementById("homeWhite").style.marginTop);
       document.getElementById("homeWhite").style.marginTop = 0.382 * (window.innerHeight - bodyHeight) + "px";
-      //console.log(document.getElementById("homeWhite").style.marginTop);
     }
   }
   resize();
