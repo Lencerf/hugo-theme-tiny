@@ -3,7 +3,28 @@
   {{ partial "head" . }}
   <body>
     {{ partial "header" . }}
+    {{ if .Params.warning }}
+    <script type="text/javascript" defer="">
+      var showContent = function() {
+        document.getElementsByTagName("article")[0].setAttribute("style", "filter: none;");
+        document.getElementById("indicator").setAttribute("style", "display: none;");
+        document.getElementById("disqus").setAttribute("style", "filter: none;");
+      }
+    </script>
+    <div id="indicator" align="center">
+      <div id="warning">
+          <p>{{.Params.warning}}</p>
+          <a onclick="javascript:showContent();" href="#" class="button" >
+            <i class="fa fa-key" aria-hidden="true"></i>
+            >>> 
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </a>
+      </div>
+    </div>
+    <article class="section" style="filter:blur(8px);">
+    {{ else }}
     <article class="section">
+    {{ end }}
       <h1 class="title">{{ .Title }}</h1>
         {{ if eq .Params.noDate true}} {{ else }}
         <time class="meta">{{ .Date.Format .Site.Params.dateformfull }}</time>
@@ -35,7 +56,7 @@
         {{end }}
       </div>
       <main class="content entry-content entry clearfix">
-          {{ .Content }}
+        {{ .Content }}
       </main>
     </article>
     {{ if eq .Params.noComment true }} {{ else }}
