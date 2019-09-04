@@ -4,12 +4,12 @@
   <body>
     {{ partial "header" . }}
     <section class="section content" id="content">
-        {{ $nbPosts := len (where .Data.Pages "Section" "post") }}
+        {{ $nbPosts := len (where .Site.RegularPages "Section" "post") }}
         {{ if gt $nbPosts 0 }}
         <h2 class="list-title">Latest posts</h2>
             <ul class="list">
-            {{ range (first .Site.Params.latestpostcount (where .Pages "Section" "post")).GroupByDate "Jan, 2006" "desc" }}
-              {{ range .Pages.ByDate }}
+            {{ range (first .Site.Params.latestpostcount (where .Site.RegularPages "Section" "post")).GroupByDate "Jan, 2006" "desc" }}
+              {{ range .Pages.ByDate.Reverse }}
                 {{ partial "li" .}}
               {{ end }}
             {{ end }}

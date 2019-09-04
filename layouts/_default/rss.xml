@@ -12,7 +12,7 @@
     {{ with .OutputFormats.Get "RSS" }}
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
-    {{ range .Data.Pages }}
+    {{ range .Site.RegularPages }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
@@ -20,7 +20,7 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>
-      {{ if not .Params.Warning }}
+      {{ if not .Params.warning }}
       {{ safeHTML "<![CDATA[" }}{{ .Content }}{{ safeHTML "]]>"}}
       {{ else }}
       {{ safeHTML "<![CDATA[" }}<p>View the original webpage: {{ .Permalink }}</p> {{ safeHTML "]]>"}}

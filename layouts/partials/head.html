@@ -5,11 +5,10 @@
 <meta property="og:title" content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}">
 <meta property="og:description" content="{{ .Site.Params.Description }}">
 <meta property="og:type" content="website">
-{{ .Hugo.Generator }}
+{{ hugo.Generator }}
 <title>{{ .Title }}{{ if eq .IsHome false }} | {{ .Site.Title }}{{ end }}</title>
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
-<!--<link href="https://fonts.googleapis.com/css?family=Marck+Script|Noto+Sans|Source+Code+Pro|Crimson+Text" rel="stylesheet">-->
+<script src="https://kit.fontawesome.com/8455592b61.js"></script>
 
 {{ if .IsPage }}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/foundation.min.css" rel="stylesheet">
@@ -30,4 +29,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
 {{ end }}
+
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
 </head>

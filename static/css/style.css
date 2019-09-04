@@ -190,7 +190,7 @@ h2.list-title:first-child {
 }
 
 .content {
-    line-height: 1.75;
+    line-height: 1.7;
     word-break: break-word;
     color:  #222324;
 }
@@ -272,6 +272,7 @@ code {
     padding: 0 5px;
     margin: 0 2px;
     font-size: 0.93em;
+    line-height: 120%;
     border: 1px solid #ddd;
     border-radius: 3px;
     word-wrap: normal
