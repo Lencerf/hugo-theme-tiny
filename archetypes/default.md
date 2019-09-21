@@ -1,7 +1,13 @@
-+++ 
-images = ["/2016/10/image.jpg"] 
-description = "" 
-categories = ["category"] 
-tags = ["tag1", "tag2"] 
-draft = true 
-+++
+---
+title: "title"
+date: "2014-04-29T23:10:11+08:00"
+tags: ["tag"]
+categories: ["category"]
+archives: ["Archives"]
+highlightLanguages: ['c']
+needKatex: false
+needMathjax: false
+indent2Char: true
+warning: "warning text"
+---
+
