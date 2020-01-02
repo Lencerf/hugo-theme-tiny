@@ -9,6 +9,35 @@
   </div>
 </footer>
 
+{{ if .IsPage }}
+<script>
+  function changeCSS(media, link) {
+    if(media.matches) {
+      link.href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atelier-cave-dark.min.css";
+    } else {
+      link.href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/foundation.min.css";
+    }
+  }
+
+  var head = document.getElementsByTagName('HEAD')[0];
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  head.appendChild(link);
+  
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  changeCSS(media, link);
+
+  media.addListener(() => {
+    changeCSS(media, link);
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>  
+{{ range .Params.highlightLanguages }}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/{{ . }}.min.js"></script>
+{{ end }} 
+{{ end }} 
+
 {{ if .Site.GoogleAnalytics }}
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
